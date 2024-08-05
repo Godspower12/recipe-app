@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 
 interface Recipe {
+    image: string;
     id: string;
     title: string;
     description: string;

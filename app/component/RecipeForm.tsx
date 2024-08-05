@@ -10,7 +10,7 @@ import { addRecipe } from "../../redux/slices/recipesSlice";
 interface RecipeFormProps {
   initialValues: {
     title: string;
-    imageUrl: string;
+    image: string;
     description: string;
     ingredients: string;
     instructions: string;
@@ -26,7 +26,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ initialValues, onSubmit }) => {
     initialValues,
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
-      imageUrl: Yup.string().url("Invalid URL format").required("Required"),
+      image: Yup.string().url("Invalid URL format").required("Required"),
       description: Yup.string().required("Required"),
       ingredients: Yup.string().required("Required"),
       instructions: Yup.string().required("Required"),
@@ -68,24 +68,22 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ initialValues, onSubmit }) => {
         ) : null}
       </div>
       <div className="flex flex-col">
-        <label htmlFor="imageUrl" className="text-black">
+        <label htmlFor="image" className="text-black">
           Image URL
         </label>
         <input
-          id="imageUrl"
-          name="imageUrl"
+          id="image"
+          name="image"
           type="text"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.imageUrl}
+          value={formik.values.image}
           className={
-            formik.touched.imageUrl && formik.errors.imageUrl
-              ? "input-error"
-              : ""
+            formik.touched.image && formik.errors.image ? "input-error" : ""
           }
         />
-        {formik.touched.imageUrl && formik.errors.imageUrl ? (
-          <div className="error">{formik.errors.imageUrl}</div>
+        {formik.touched.image && formik.errors.image ? (
+          <div className="error">{formik.errors.image}</div>
         ) : null}
       </div>
       <div className="flex flex-col">

@@ -6,10 +6,10 @@ import axios from "axios";
 
 interface RecipeCardProps {
   recipe: {
+    image: string;
     id: string;
     title: string;
     description: string;
-    image: string;
   };
 }
 

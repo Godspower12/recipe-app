@@ -8,6 +8,7 @@ export default function EditRecipePage() {
   const router = useRouter();
   const { id } = router.query;
   const [initialValues, setInitialValues] = useState({
+    image: "",
     title: "",
     description: "",
     ingredients: "",
@@ -26,7 +27,7 @@ export default function EditRecipePage() {
     }
   }, [id]);
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: any) => {
     await axios.put(`/api/recipes/${id}`, values);
   };
 

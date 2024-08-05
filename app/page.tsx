@@ -41,6 +41,7 @@ export default function HomePage() {
       <Modal isVisible={show} onClose={() => setShow(false)}>
         <RecipeForm
           initialValues={{
+            image: "",
             title: "",
             description: "",
             ingredients: "",
